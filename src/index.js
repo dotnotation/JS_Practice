@@ -3,30 +3,26 @@ const toyBoxAdapter = new ToyBoxAdapter("http://localhost:3000")
 
 document.addEventListener("DOMContentLoaded", () => {
   toyBoxAdapter.getToyBoxes()
+  // sorting()
 })
 
-// function addDropDown(){
-//  debugger
-//   var values = ["dog", "cat", "parrot", "rabbit"];
+// function sorting(){
+//   //console.log("hit sorting")
+//   const topDiv = document.getElementById("toy-box-list")
+//   const sortBtn = document.createElement("btn")
+//   sortBtn.innerText = "Sort"
+//   sortBtn.addEventListener("click", handleSort)
 
-//   var select = document.createElement("select");
-//   select.name = "pets";
-//   select.id = "pets"
-
-//   for (const val of values)
-//   {
-//       var option = document.createElement("option");
-//       option.value = val;
-//       option.text = val.charAt(0).toUpperCase() + val.slice(1);
-//       select.appendChild(option);
-//   }
-
-//   var label = document.createElement("label");
-//   label.innerHTML = "Choose your pets: "
-//   label.htmlFor = "pets";
-
-//   document.getElementById("header").appendChild(label).appendChild(select);
+//   topDiv.appendChild(sortBtn)
 // }
+
+// function handleSort(e){
+//   console.log(e.target)
+//   const menuList = document.getElementById("name-drop-down")
+//   let sortList = []
+ 
+// }
+
 
 
 

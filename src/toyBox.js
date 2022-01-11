@@ -28,16 +28,18 @@ class ToyBox {
 
     listenEvents(e){
         e.preventDefault()
-        console.log(e.target.parentElement.children)
+        //console.log(e.target.parentElement.children)
         const count = e.target.parentElement.children[2]
         count.innerHTML = parseInt(count.innerHTML, 10) + 1
     }
 
     addDropDown(values){
-        console.log("hit drop down", values)
-
         const header = document.getElementById("header")
+        header.innerHTML = ""
+        //console.log("hit drop down", values)
+
         const menu = document.createElement("select")
+        menu.setAttribute("id", "name-drop-down")
         values.forEach(name => {
             let option = document.createElement("option")
             option.value = name
@@ -45,7 +47,7 @@ class ToyBox {
             menu.appendChild(option)
         })
 
-
         header.appendChild(menu)
     }
+
 }
