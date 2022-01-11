@@ -11,6 +11,7 @@ const addDogs = () => {
     const dog = new Dog(id, name, breed, knownFor); // create dog objects
     Dog.all.push(dog); // add to Dog.all
     dogDiv.insertAdjacentHTML("beforeend", dog.renderDog());
+    dogDiv.addEventListener("click", dog.handleEvent);
   }
 };
 

@@ -18,16 +18,17 @@ export class Dog {
         `;
     }
   
-    listenEvent() {
-      const likeBtn = document.getElementsByClassName("like");
-      console.log(likeBtn);
-      likeBtn.addEventListener("click", this.handleEvent);
-    }
+    // listenEvent() {
+    //   const likeBtn = document.getElementsByClassName("like");
+    //   console.log(likeBtn);
+    //   likeBtn.addEventListener("click", this.handleEvent);
+    // }
   
     handleEvent(e) {
-      e.preventDefault();
-      debugger;
-      console.log(e.target.parentElement);
+        e.preventDefault();
+        console.log(e.target.parentElement.children[3]);
+        const counter = e.target.parentElement.children[3];
+        counter.innerHTML = parseInt(counter.innerHTML, 10) + 1;
     }
   }
   
