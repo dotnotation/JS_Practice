@@ -32,4 +32,20 @@ class ToyBox {
         const count = e.target.parentElement.children[2]
         count.innerHTML = parseInt(count.innerHTML, 10) + 1
     }
+
+    addDropDown(values){
+        console.log("hit drop down", values)
+
+        const header = document.getElementById("header")
+        const menu = document.createElement("select")
+        values.forEach(name => {
+            let option = document.createElement("option")
+            option.value = name
+            option.text = name
+            menu.appendChild(option)
+        })
+
+
+        header.appendChild(menu)
+    }
 }

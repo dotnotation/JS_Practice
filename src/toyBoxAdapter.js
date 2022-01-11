@@ -7,9 +7,13 @@ class ToyBoxAdapter{
         fetch(this.baseURL)
         .then(r => r.json())
         .then(toyBoxes => {
+            let values = []
             toyBoxes.forEach(toyBox => {
                 const tb = new ToyBox(toyBox)
+                console.log(toyBox.name)
                 tb.renderToyBox()
+                values.push(toyBox.name)
+                tb.addDropDown(values)
             })
         })
         .catch(error => console.error(error))
