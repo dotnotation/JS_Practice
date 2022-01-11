@@ -33,7 +33,7 @@ class ToyBox {
         count.innerHTML = parseInt(count.innerHTML, 10) + 1
     }
 
-    addDropDown(values){
+    static addDropDown(values){
         const header = document.getElementById("header")
         header.innerHTML = ""
         //console.log("hit drop down", values)

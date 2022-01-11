@@ -13,8 +13,9 @@ class ToyBoxAdapter{
                 // console.log(toyBox.name)
                 tb.renderToyBox()
                 values.push(toyBox.name)
-                tb.addDropDown(values)
+                //tb.addDropDown(values)
             })
+            ToyBox.addDropDown(values)
         })
         .catch(error => console.error(error))
     }
