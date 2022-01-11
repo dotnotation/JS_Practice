@@ -6,10 +6,12 @@ class ToyBoxAdapter{
     getToyBoxes(){
         fetch(this.baseURL)
         .then(r => r.json())
-        .then(toyBoxes =>
-            toyBoxes.forEach(toyBoxes => {
-                const tb = new ToyBox(toybox)
+        .then(toyBoxes => {
+            toyBoxes.forEach(toyBox => {
+                const tb = new ToyBox(toyBox)
                 tb.renderToyBox()
-            }))
+            })
+        })
+        .catch(error => console.error(error))
     }
 }
