@@ -42,15 +42,23 @@ function addDropDown(values) {
 
   const filterBtn = document.createElement("btn");
   filterBtn.innerText = "Filter By Breed";
-  filterBtn.addEventListener("click", filterBreed(unique))
+  filterBtn.addEventListener("click", filterBreed)
 
   header.append(menu);
   header.append(filterBtn);
 }
 
-function filterBreed(unique){
-  console.log(unique)
+function filterBreed(e){
+  e.preventDefault()
+  // console.log(e.target.parentElement.children[1])
+  const form = document.getElementById(".dog-filter")
+  // console.log(form)
+  const selection = form.value
+  console.log(selection)
+  // const input = form.selectedOptions
+  // console.log(input)
   
+}
 }
 
 //addDropDown();
