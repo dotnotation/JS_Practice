@@ -13,10 +13,11 @@ const addDogs = () => {
     const dog = new Dog(id, name, breed, knownFor); // create dog objects
     Dog.all.push(dog); // add to Dog.all
     dogDiv.insertAdjacentHTML("beforeend", dog.renderDog());
-    // dogDiv.addEventListener("click", dog.handleEvent);
+    dogDiv.addEventListener("click", dog.handleEvent);
     console.log(dog.name);
-    values.push(dog.name);
+    values.push(dog.breed);
     console.log(values);
+    //Dog.all.addSelectOptions(dog);
   }
   console.log(values);
   addDropDown(values);
@@ -29,17 +30,30 @@ function addDropDown(values) {
   const header = document.getElementById("app");
   const menu = document.createElement("select");
 
-  menu.setAttribute("id", "name-drop-down");
-  values.forEach((name) => {
+  menu.setAttribute("id", ".dog-filter");
+  let unique = values.filter((item, i, ar) => ar.indexOf(item) === i);
+  console.log(unique);
+  unique.forEach((breed) => {
     let option = document.createElement("option");
-    option.value = name;
-    option.text = name;
+    option.value = breed;
+    option.text = breed;
     menu.appendChild(option);
   });
 
+  const filterBtn = document.createElement("btn");
+  filterBtn.innerText = "Filter By Breed";
+  filterBtn.addEventListener("click", filterBreed(unique))
+
   header.append(menu);
+  header.append(filterBtn);
 }
 
+function filterBreed(unique){
+  console.log(unique)
+  
+}
+
+//addDropDown();
 
 // const handleEvent = () => {
 //   dogDiv.addEventListener("click", (e) => {

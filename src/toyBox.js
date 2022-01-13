@@ -35,7 +35,7 @@ class ToyBox {
 
     static addDropDown(values){
         const header = document.getElementById("header")
-        header.innerHTML = ""
+        //header.innerHTML = ""
         //console.log("hit drop down", values)
 
         const menu = document.createElement("select")
