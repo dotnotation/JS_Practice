@@ -48,17 +48,24 @@ function addDropDown(values) {
   header.append(filterBtn);
 }
 
-function filterBreed(e){
-  e.preventDefault()
-  // console.log(e.target.parentElement.children[1])
-  const form = document.getElementById(".dog-filter")
-  // console.log(form)
-  const selection = form.value
-  console.log(selection)
-  // const input = form.selectedOptions
-  // console.log(input)
-  
-}
+function filterBreed(e) {
+  e.preventDefault();
+  const form = document.getElementById(".dog-filter");
+  const selection = form.value;
+  const filter = { breed: selection };
+  const dogBreed = Dog.all;
+  const filteredDogs = dogBreed.filter(function (item) {
+    for (var key in filter) {
+      if (item[key] === undefined || item[key] !== filter[key]) return false;
+    }
+    return true;
+  });
+  console.log(filteredDogs);
+  Dog.renderDog(filteredDogs);//currently doesn't work
+  // const filteredDog = new Dog(filtered)
+  // console.log(filteredDog)
+  // dogDiv.innerHTML = ""
+  // filteredDog.renderDog()
 }
 
 //addDropDown();
