@@ -34,6 +34,7 @@ class ToyBox {
     }
 
     static addDropDown(values){
+        // A static method is a function that is bound to the class, not an object.
         const header = document.getElementById("header")
         //header.innerHTML = ""
         //console.log("hit drop down", values)
