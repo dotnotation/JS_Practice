@@ -25,10 +25,12 @@ export class Dog {
     // }
   
     handleEvent(e) {
-        e.preventDefault();
-        console.log(e.target.parentElement.children[3]);
+      e.preventDefault();
+      console.log(e.target.parentElement.children[3]);
+      if (e.target.closest(".like")){
         const counter = e.target.parentElement.children[3];
         counter.innerHTML = parseInt(counter.innerHTML, 10) + 1;
+      }
     }
   }
   
