@@ -50,22 +50,33 @@ function addDropDown(values) {
 
 function filterBreed(e) {
   e.preventDefault();
+  // console.log(e.target.parentElement.children[1])
   const form = document.getElementById(".dog-filter");
+  // console.log(form)
   const selection = form.value;
+  //console.log(selection);
+  // const input = form.selectedOptions
+  // console.log(input)
+  //const dogElements = document.getElementsByClassName("dog-card")
+  // console.log(dogElements)
   const filter = { breed: selection };
   const dogBreed = Dog.all;
-  const filteredDogs = dogBreed.filter(function (item) {
+  // dogBreed.forEach(selection =>
+  let filteredDogs = dogBreed.filter(function (item) {
     for (var key in filter) {
       if (item[key] === undefined || item[key] !== filter[key]) return false;
     }
     return true;
   });
-  console.log(filteredDogs);
-  Dog.renderDog(filteredDogs);//currently doesn't work
-  // const filteredDog = new Dog(filtered)
-  // console.log(filteredDog)
-  // dogDiv.innerHTML = ""
-  // filteredDog.renderDog()
+  dogDiv.innerHTML = ""
+
+  for (const dogData of filteredDogs) {
+    const { id, name, breed, knownFor } = dogData;
+    let filteredDogs = new Dog(id, name, breed, knownFor); // create dog objects
+    // Dog.all.push(dog); // add to Dog.all
+    dogDiv.insertAdjacentHTML("beforeend", filteredDogs.renderDog());
+  }
+}
 }
 
 //addDropDown();
