@@ -30,8 +30,8 @@ function addDropDown(values) {
   const header = document.getElementById("app");
   const menu = document.createElement("select");
 
-  menu.setAttribute("id", ".dog-filter");
-  let unique = values.filter((item, i, ar) => ar.indexOf(item) === i);
+  menu.setAttribute("id", "dog-filter");
+  let unique = values.filter((dog, i, array) => array.indexOf(dog) === i);
   console.log(unique);
   unique.forEach((breed) => {
     let option = document.createElement("option");
@@ -51,7 +51,7 @@ function addDropDown(values) {
 function filterBreed(e) {
   e.preventDefault();
   // console.log(e.target.parentElement.children[1])
-  const form = document.getElementById(".dog-filter");
+  const form = document.getElementById("dog-filter");
   // console.log(form)
   const selection = form.value;
   //console.log(selection);
@@ -62,9 +62,9 @@ function filterBreed(e) {
   const filter = { breed: selection };
   const dogBreed = Dog.all;
   // dogBreed.forEach(selection =>
-  let filteredDogs = dogBreed.filter(function (item) {
+  let filteredDogs = dogBreed.filter(function (dog) {
     for (var key in filter) {
-      if (item[key] === undefined || item[key] !== filter[key]) return false;
+      if (dog[key] === undefined || dog[key] !== filter[key]) return false;
     }
     return true;
   });
