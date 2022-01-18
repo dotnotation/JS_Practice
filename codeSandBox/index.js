@@ -1,6 +1,7 @@
 import "./styles.css";
 import { Dog } from "./dog"; // dog class
 import { dogs } from "../public/data"; // array of dog objects
+import { addSelectOptions } from "./helpers";
 
 const dogDiv = document.querySelector(".dogList"); // grab div
 
@@ -24,6 +25,7 @@ const addDogs = () => {
 };
 
 addDogs(); // invoke function
+addSelectOptions(dogs);
 
 function addDropDown(values) {
   console.log("hit drop down", values);
@@ -32,6 +34,8 @@ function addDropDown(values) {
 
   menu.setAttribute("id", "dog-filter");
   let unique = values.filter((dog, i, array) => array.indexOf(dog) === i);
+  // to locate values in an array
+  // indexOf() compares searchElement to elements of the Array using strict equality 
   console.log(unique);
   unique.forEach((breed) => {
     let option = document.createElement("option");
